@@ -1,3 +1,4 @@
+using TodoAPI.DB;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,12 @@ app.UseSwaggerUI(c =>
   });
 
 app.UseCors("some unique string");
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "This is home");
+
+app.MapGet("/todos/{id}", (int id) => TodoDB.GetTodo(id));
+app.MapGet("/todos", () => TodoDB.GetTodos());
+app.MapPost("/todos", (Todo todo) => TodoDB.CreateTodo(todo));
+app.MapPut("/todos", (Todo todo) => TodoDB.UpdateTodo(todo));
+app.MapDelete("/todos/{id}", (int id) => TodoDB.DeleteTodo(id));
 
 app.Run();
