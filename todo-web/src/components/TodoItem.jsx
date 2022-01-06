@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const todosList = [
   {id:1, name: "react with C#", description: "combine react with c#"},
@@ -6,8 +6,11 @@ const todosList = [
 ];
 
 export default function TodoItem() {
-
+  const [data, setData] = useState(todo);
+  const [isDoing, setIsDoing] = useState(false);
   return (
-    <></>
+    <>
+    
+    </>
   );
 }
