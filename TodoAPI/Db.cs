@@ -28,5 +28,15 @@ public class TodoDB {
     _todosList.Add(todo);
     return todo;
   }
+
+  public static Todo UpdateTodo(Todo update) {
+    _todosList = _todosList.Select(todo => {
+      if (todo.Id == update.Id) {
+        todo.Name = update.Name;
+      }
+      return todo;
+    }).ToList();
+    return update;
+  }
   
 }
