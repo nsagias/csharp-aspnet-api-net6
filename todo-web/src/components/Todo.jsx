@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import { 
+  TodoFrame, 
+  Input, 
+  Title, 
+  Save 
+} from "./TodoStyles";
 
 
 const todosList = [
