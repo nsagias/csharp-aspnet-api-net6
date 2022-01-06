@@ -8,6 +8,16 @@ const todosList = [
 export default function TodoItem() {
   const [data, setData] = useState(todo);
   const [isDoing, setIsDoing] = useState(false);
+
+  function updateHandler(value, fieldName, obj) {
+    setData({ ...obj, [fieldName] : value});
+  }
+
+  function onSave() {
+    setIsDoing(false);
+  }
+
+
   return (
     <>
     
