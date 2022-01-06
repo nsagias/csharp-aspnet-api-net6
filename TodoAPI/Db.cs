@@ -11,7 +11,7 @@ public class TodoDB {
   private static List<Todo> _todosList = new List<Todo>() {
     new Todo{ Id=1, Name="Learn minimal c# api" },
     new Todo{ Id=2, Name="Learn how the use it K8s" },
-    new Todo{ Id=3, Name="Learn how to lauch on Azure" }
+    new Todo{ Id=3, Name="Learn how to launch on Azure" }
   };
 
   //  function to get all todo list
@@ -41,7 +41,7 @@ public class TodoDB {
 
   // delete by ID
   public static void DeleteTodo(int id) {
-    _todosList = _todosList.FindAll(todo => todo.Id == id).ToList();
+    _todosList = _todosList.FindAll(todo => todo.Id != id).ToList();
   }
   
 }
