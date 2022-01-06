@@ -20,5 +20,6 @@ app.UseSwaggerUI(c => {
 });
 
 app.MapGet("/", () => "Hello World!");
+app.MapGet("/todos", async (TodoDb db) => await db.Todos.ToListAsync());
 
 app.Run();

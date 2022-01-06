@@ -7,7 +7,7 @@ namespace TodoApiDB.Models {
     public string? Description {get; set;}
   }
 
-  class TodoDB : DbContext {
+  class TodoDb : DbContext {
     public TodoDb(DbContextOptions options) : base(options) {}
     public DbSet<Todo> Todos {get; set;}
   }
