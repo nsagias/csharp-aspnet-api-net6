@@ -23,5 +23,10 @@ public class TodoDB {
   public static Todo? GetTodo(int id) {
     return _todosList.SingleOrDefault(todo => todo.Id == id);
   }
+
+  public static Todo CreateTodo(Todo todo) {
+    _todosList.Add(todo);
+    return todo;
+  }
   
 }
