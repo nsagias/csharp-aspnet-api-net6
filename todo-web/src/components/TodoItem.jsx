@@ -33,7 +33,9 @@ export default function TodoItem() {
             value={data.description} 
           />
         </div>
-
+        {isDoing ? 
+          <div><button onClick={onSave}>Save</button></div> : null
+        }
       </div>
     </>
   );
