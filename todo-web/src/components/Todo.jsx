@@ -5,7 +5,7 @@ const todosList = [
   {id:2, name: "react with secure endpoitns", description: "secure this later"}
 ];
 
-export default function TodoItem({ todo }) {
+function Todo({ todo }) {
   const [data, setData] = useState(todo);
   const [isDoing, setIsDoing] = useState(false);
 
@@ -37,6 +37,17 @@ export default function TodoItem({ todo }) {
           <div><button onClick={onSave}>Save</button></div> : null
         }
       </div>
+    </>
+  );
+}
+
+export default function TodoList() {
+
+  const parsedTodos = Array.isArray(todos) 
+    && todos.map(todo => <Todo todo={todo} />);
+  return (
+    <>
+      {parsedTodos}
     </>
   );
 }
