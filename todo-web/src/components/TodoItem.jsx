@@ -20,7 +20,21 @@ export default function TodoItem() {
 
   return (
     <>
-    
+      <div>
+        <h3>
+          <input 
+            onChange={ event => updateHandler(event.target.value, 'name', data)} 
+            value={data.name} 
+          />
+        </h3>
+        <div>
+          <input 
+            onChange={ event => updateHandler(event.target.value, 'description', data)} 
+            value={data.description} 
+          />
+        </div>
+
+      </div>
     </>
   );
 }
