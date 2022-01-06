@@ -5,7 +5,7 @@ const todosList = [
   {id:2, name: "react with secure endpoitns", description: "secure this later"}
 ];
 
-export default function TodoItem() {
+export default function TodoItem({ todo }) {
   const [data, setData] = useState(todo);
   const [isDoing, setIsDoing] = useState(false);
 
