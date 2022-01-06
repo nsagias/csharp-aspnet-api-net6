@@ -27,23 +27,25 @@ function Todo({ todo }) {
 
   return (
     <>
-      <div>
-        <h3>
-          <input 
-            onChange={ event => updateHandler(event.target.value, 'name', data)} 
-            value={data.name} 
-          />
-        </h3>
+      <TodoFrame>
         <div>
-          <input 
-            onChange={ event => updateHandler(event.target.value, 'description', data)} 
-            value={data.description} 
-          />
+          <h3>
+            <Title input 
+              onChange={ event => updateHandler(event.target.value, 'name', data)} 
+              value={data.name} 
+              />
+          </h3>
+          <div>
+            <Input input 
+              onChange={ event => updateHandler(event.target.value, 'description', data)} 
+              value={data.description} 
+              />
+          </div>
+          {isDoing ? 
+            <div><Save onClick={onSave}>Save</Save></div> : null
+          }
         </div>
-        {isDoing ? 
-          <div><button onClick={onSave}>Save</button></div> : null
-        }
-      </div>
+      </TodoFrame>  
     </>
   );
 }
