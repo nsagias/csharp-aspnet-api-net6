@@ -38,5 +38,10 @@ public class TodoDB {
     }).ToList();
     return update;
   }
+
+  // delete by ID
+  public static void DeleteTodo(int id) {
+    _todosList = _todosList.FindAll(todo => todo.Id == id).ToList();
+  }
   
 }
