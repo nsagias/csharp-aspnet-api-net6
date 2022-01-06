@@ -30,4 +30,14 @@ app.MapPost("/todos", async (TodoDb db, Todo todo) => {
   return Results.Created($"/todos/{todo.Id}", todo);
 });
 
+// Update one item
+app.MapPut("/todos/{id}", async (TodoDb db, Todo updateTodo, int id) => {
+  var todo = await db.Todos.FindAsync(id);
+  if (todo is null) return Results.NotFound();
+  todo.Name = updateTodo.Name;
+  todo.Description = updateTodo.Description;
+  await db.SaveChangesAsync();
+  return Results.NoContent();
+});
+
 app.Run();
