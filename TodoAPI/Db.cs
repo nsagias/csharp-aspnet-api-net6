@@ -13,4 +13,15 @@ public class TodoDB {
     new Todo{ Id=2, Name="Learn how the use it K8s" },
     new Todo{ Id=3, Name="Learn how to lauch on Azure" }
   };
+
+  //  function to get all todo list
+  public static List<Todo> GetTodos() {
+    return _todosList;
+  }
+
+  //  get one
+  public static Todo? GetTodo(int id) {
+    return _todosList.SingleOrDefault(todo => todo.Id == id);
+  }
+  
 }
