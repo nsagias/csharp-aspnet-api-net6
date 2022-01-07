@@ -3,6 +3,8 @@ using TodoApiDB.Data;
 using Microsoft.OpenApi.Models;
 using TodoApiDB.Models;
 
+// cors
+string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("Todos") ?? "Data Source=Todos.db";
@@ -16,12 +18,26 @@ builder.Services.AddSwaggerGen(c => {
     Version = "v1" });
 });
 
+// cors
+builder.Services.AddCors(options =>
+{
+  options.AddPolicy(name: MyAllowSpecificOrigins,
+    builder =>
+    {
+         builder.WithOrigins("*");
+    });
+});
+
 var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI(c => {
   c.SwaggerEndpoint("/swagger/v1/swagger.json", "Todo API EntityFramework V1");
 });
+
+// cors
+app.UseCors(MyAllowSpecificOrigins);
+
 
 // home
 app.MapGet("/", () => "Hello World!");
