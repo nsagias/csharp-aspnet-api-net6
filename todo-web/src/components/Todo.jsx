@@ -54,7 +54,7 @@ function Todo({ todo }) {
 export default function TodoList() {
 
   const parsedTodos = Array.isArray(todosList) 
-    && todosList.map(todo => <Todo todo={todo} />);
+    && todosList.map(todo => <Todo key={todo.id} todo={todo} />);
   return (
     <>
       {parsedTodos}
