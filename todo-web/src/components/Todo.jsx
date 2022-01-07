@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { 
   TodoFrame, 
   Input, 
@@ -6,11 +6,12 @@ import {
   Save 
 } from "./TodoStyles";
 
-
+/*
 const todosList = [
   {id:1, name: "react with C#", description: "combine react with c#"},
   {id:2, name: "react with secure endpoitns", description: "secure this later"}
 ];
+*/
 
 function Todo({ todo }) {
   const [data, setData] = useState(todo);
@@ -52,6 +53,20 @@ function Todo({ todo }) {
 }
 
 export default function TodoList() {
+
+  const [todosList, setTodosList] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const URL = 'http://localhost:5122';
+  function fetchData() {
+    fetch(`${URL}/todos`)
+      .then(response => response.json())
+      .then(data => setTodosList(data));
+  }
+
 
   const parsedTodos = Array.isArray(todosList) 
     && todosList.map(todo => <Todo key={todo.id} todo={todo} />);
