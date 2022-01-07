@@ -22,7 +22,7 @@ export const Title = styled(Input)`
 export const Save = styled.button`
    width: 100px;
    margin: 10px;
-   background: blue;
+   background: #455A64;
    color: white;
    font-size: 16px;
    padding: 10px;
