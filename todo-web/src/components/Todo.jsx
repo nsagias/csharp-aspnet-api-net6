@@ -18,6 +18,7 @@ function Todo({ todo }) {
 
   function updateHandler(value, fieldName, obj) {
     setData({ ...obj, [fieldName] : value});
+    setIsDoing(true);
   }
 
   function onSave() {
@@ -27,25 +28,25 @@ function Todo({ todo }) {
 
   return (
     <>
-      <TodoFrame>
+    <TodoFrame>
+      <div>
+        <h3>
+          <Title 
+            onChange={ event => updateHandler(event.target.value, 'name', data)} 
+            value={data.name} 
+          />
+        </h3>
         <div>
-          <h3>
-            <Title input 
-              onChange={ event => updateHandler(event.target.value, 'name', data)} 
-              value={data.name} 
-              />
-          </h3>
-          <div>
-            <Input input 
-              onChange={ event => updateHandler(event.target.value, 'description', data)} 
-              value={data.description} 
-              />
-          </div>
-          {isDoing ? 
-            <div><Save onClick={onSave}>Save</Save></div> : null
-          }
+          <Input
+            onChange={ event => updateHandler(event.target.value, 'description', data)} 
+            value={data.description} 
+          />
         </div>
-      </TodoFrame>  
+        {isDoing ? 
+          <div><Save onClick={onSave}>Save</Save></div> : null
+        }
+      </div>
+      </TodoFrame>
     </>
   );
 }
