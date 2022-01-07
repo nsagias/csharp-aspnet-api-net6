@@ -1,6 +1,8 @@
-using TodoApiDB.Models;
 using Microsoft.EntityFrameworkCore;
+using TodoApiDB.Data;
 using Microsoft.OpenApi.Models;
+using TodoApiDB.Models;
+
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("Todos") ?? "Data Source=Todos.db";
